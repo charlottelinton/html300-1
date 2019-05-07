@@ -4,3 +4,76 @@
 @import 'settings.responsive';
 @import 'components.content';
 
+// Defining grid container - 2 columns, 4 rows, and areas for item positioning
+.container {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 2fr 1fr 7fr 2fr;
+  grid-template-areas:
+    "header header"
+    "nav nav"
+    "sidebar main"
+    "footer footer"
+}
+
+// Defining item display using flexbox to center content
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+  font-family: sans-serif;
+  & p {
+    padding: 20px;
+    font-size: 1rem;
+  }
+}
+
+// Positioning the header section
+.heading {
+  grid-area: header;
+  background-color: red;
+}
+
+// Positioning navigation and using flexbox to display nav items
+.navbar {
+  grid-area: nav;
+  background-color: green;
+  & ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    li {
+      padding: 20px;
+    }
+  }
+}
+
+// Positioning sidebar section
+.sidebar {
+  grid-area: sidebar;
+  background-color: purple;
+}
+
+// Positioning main content section
+.main-content {
+  grid-area: main;
+  background-color: orange;
+}
+
+// Positioning footer section
+.foot {
+  grid-area: footer;
+  background-color: blue;
+}
+
+// Media query to decrease font soze so that nav is still visible on smaller devices
+@media only screen and (max-width: 768px) {
+  li {
+    font-size: 1rem;
+  }
+}
